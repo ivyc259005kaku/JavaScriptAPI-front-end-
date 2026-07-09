@@ -1,0 +1,83 @@
+/* ==============================================
+   css-header.css
+   ヘッダー・ナビゲーション・フッター
+   全ページ共通
+   ============================================== */
+
+/* ── ヘッダー ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--indigo);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: rgba(244,239,230,0.65);
+  letter-spacing: 0.06em;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--cream);
+}
+
+.nav-link.active {
+  border-bottom-color: var(--vermillion);
+  font-weight: 600;
+}
+
+/* ── フッター ── */
+.site-footer {
+  background-color: var(--green);
+  color: rgba(244,239,230,0.65);
+  padding: 2.4rem;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--cream);
+  letter-spacing: 0.18em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-address {
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.3rem;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  opacity: 0.45;
+}

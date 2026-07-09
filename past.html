@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+  ダウンロード後、このファイルを「past.html」にリネームしてください
+  画像ファイルは img/ フォルダに入れてください：
+    img/shinsa1.png    ← 大分審査２段.png
+    img/shinsa2.JPG    ← 審査風景.JPG  または 大分審査.JPG
+    img/shukugakai.jpg ← 祝賀会.jpg
+    img/enbukai.mp4    ← 2024fukuoka.mp4
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>過去の活動 | 宇佐合気道会</title>
+  <link rel="stylesheet" href="css-base.css" />
+  <link rel="stylesheet" href="css-header.css" />
+  <link rel="stylesheet" href="css-hero.css" />
+  <link rel="stylesheet" href="css-cards.css" />
+  <link rel="stylesheet" href="css-calendar.css" />
+  <link rel="stylesheet" href="css-pages.css" />
+  <link rel="stylesheet" href="css-responsive.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">宇佐合気道会</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">ホーム</a>
+        <a href="past.html"  class="nav-link active">過去の活動</a>
+        <a href="faq.html"   class="nav-link">よくある質問</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-page-label fade-in">宇佐合気道会</p>
+      <h1 class="hero-page-title fade-in fade-in-d1">過去の活動</h1>
+      <div class="hero-line fade-in fade-in-d2"></div>
+    </div>
+  </div>
+
+  <main class="container main-content">
+
+    <section class="card reveal">
+      <h2 class="section-title">大分県合同審査会</h2>
+      <div class="gallery-grid">
+        <div>
+          <div class="gallery-item">
+            <img src="大分審査２段.png" alt="大分県合同審査会（二段）" />
+          </div>
+          <p class="gallery-caption">大分県合同審査会 — 二段審査</p>
+        </div>
+        <div>
+          <div class="gallery-item">
+            <img src="大分審査.JPG" alt="大分県合同審査会" />
+          </div>
+          <p class="gallery-caption">大分県合同審査会</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <h2 class="section-title">2024年 演武会</h2>
+      <div class="video-wrap">
+        <video controls loop muted playsinline>
+          <source src="2024fukuoka.mp4" type="video/mp4" />
+          お使いのブラウザはvideoタグをサポートしていません。
+        </video>
+      </div>
+      <p class="gallery-caption" style="margin-top:0.8rem;">2024年 福岡演武会</p>
+    </section>
+
+    <section class="card reveal">
+      <h2 class="section-title">2024年 演武会祝賀会</h2>
+      <div class="gallery-item">
+        <img src="shukuga.jpg" alt="演武会祝賀会の様子">
+      </div>
+      <p class="gallery-caption" style="margin-top:0.8rem;">演武会祝賀会</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-title">宇佐合気道会</p>
+    <p class="footer-address">〒879-0452 大分県宇佐市川部1591　宇佐市総合運動公園内 武道場</p>
+    <p class="footer-copy">© 非公式 2025 宇佐合気道会</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  </script>
+</body>
+</html>

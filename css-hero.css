@@ -1,0 +1,119 @@
+/* ==============================================
+   css-hero.css
+   ヒーロー（トップの大きい画像エリア）
+   ★ 背景写真・明るさ・文字の輝きはここを編集
+   ============================================== */
+
+/* ── メインヒーロー（index.html） ── */
+.hero {
+  position: relative;
+  height: clamp(280px, 48vw, 480px);
+  background-color: var(--green);
+
+  /* ▼▼▼ 背景写真と暗さの調整 ▼▼▼
+     rgba の4つ目の数字（0.00〜1.00）が暗さ
+     0に近いほど明るく、1に近いほど真っ暗になります */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 220, 120, 0.15) 0%,   /* 上：金色の光 */
+      rgba(180,  80,  20, 0.25) 50%,  /* 中：朱色フィルター */
+      rgba(10,   10,  20, 0.60) 100%  /* 下：引き締め */
+    ),
+    url('宇佐神宮正面.jpg');
+  /* ▲▲▲ ここまで ▲▲▲ */
+
+  background-size: cover;
+  background-position: center 35%;
+  background-attachment: scroll; /* タブレット対応のため scroll を推奨 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── ヒーロー内のテキストエリア ── */
+.hero-inner {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ── メインタイトル「宇佐合気道会」── */
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  line-height: 1.15;
+
+  /* ▼▼▼ 白グラデーション ▼▼▼ */
+  background: linear-gradient(
+    to bottom,
+    #FFFFFF 0%,    
+    #c7c5e0 50%,   
+    #FFFFFF 100%   
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* ▲▲▲ ここまで ▲▲▲ */
+
+  /* ▼▼▼ テキストシャドウで奥行き＋神秘的な後光 ▼▼▼
+     金グラデーション文字には filter: drop-shadow を使用
+     （text-shadow は background-clip:text と併用不可のため）
+
+     drop-shadow の構造:
+       drop-shadow( X軸  Y軸  ぼかし範囲  色 )
+       X・Y = 0 にすると影が全方向に均等に広がる
+       ぼかし範囲を大きくするほど光が遠くまで広がる
+       rgba の4つ目 = 光の強さ（0〜1）         */
+  filter:
+    drop-shadow(0  2px  4px rgba(  0,   0,   0, 0.95))   /* 直下の濃い影 → 可読性 */
+    drop-shadow(0  0px 40px rgba(255, 200,  80, 0.60))   /* 金の後光 → 神秘性 */
+    drop-shadow(0  0px 80px rgba(255, 150,  30, 0.30));  /* 遠くまで広がる光 */
+  /* ▲▲▲ ここまで ▲▲▲ */
+}
+
+/* ── サブタイトル「USA AIKIDO KAI · since 1992」── */
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.5vw, 0.9rem);
+  letter-spacing: 0.32em;
+  color: rgba(255, 235, 160, 0.85);  /* 薄い金色 */
+  text-shadow: 0 0 10px rgba(255, 210, 80, 0.5); /* うっすら光る */
+
+  /* ▼▼▼ 座布団 ▼▼▼ */
+  background: rgba(15, 11, 92, 0.300);  /* 背景色と透明度 */
+  padding: 0.4em 1.2em;             /* 上下 左右の余白 */
+  border-radius: 2px;               /* 角の丸み（0にすると四角）*/
+  /* ▲▲▲ ここまで ▲▲▲ */
+}
+
+/* ── 区切り線（赤線 → 金グラデーション線）── */
+.hero-line {
+  width: 48px;
+  height: 2px;
+  margin-top: 0.4rem;
+  background: linear-gradient(to right, transparent, #C9A84C, transparent);
+}
+
+/* ── サブページ用小見出し（past.html / faq.html）── */
+.hero-page-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: rgba(244,239,230,0.55);
+  letter-spacing: 0.25em;
+  margin-bottom: 0.2rem;
+}
+
+.hero-page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.14em;
+}

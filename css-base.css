@@ -1,0 +1,72 @@
+/* ==============================================
+   css-base.css
+   変数・リセット・レイアウト・アニメーション
+   ここを変えると全ページに影響します
+   ============================================== */
+
+/* ── カスタムプロパティ（色・フォント） ── */
+:root {
+  --green:      #1B3828;   /* 深緑 */
+  --indigo:     #1C2D5A;   /* 藍色 */
+  --vermillion: #C4351A;   /* 朱色 */
+  --cream:      #F4EFE6;   /* 和紙 */
+  --ink:        #25201A;   /* 墨 */
+  --muted:      #7A7265;   /* 薄墨 */
+  --border:     rgba(27, 56, 40, 0.15);
+  --card:       #FFFFFF;
+
+  --font-serif: 'Noto Serif JP', 'YuMincho', 'Yu Mincho', serif;
+  --font-sans:  'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+
+/* ── リセット & ベース ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── レイアウト ── */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+/* ── アニメーション ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in             { animation: fadeInUp 0.7s ease-out both; }
+.fade-in-d1          { animation-delay: 0.1s; }
+.fade-in-d2          { animation-delay: 0.2s; }
+.fade-in-d3          { animation-delay: 0.3s; }
+
+/* スクロール時のフェードイン（JS で .visible クラスを付与） */
+.reveal         { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }

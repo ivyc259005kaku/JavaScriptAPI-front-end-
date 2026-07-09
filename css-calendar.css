@@ -1,0 +1,283 @@
+/* ==============================================
+   css-calendar.css
+   Google カレンダー表示エリア
+   ★ 稽古・休み・行事の色はここを編集
+   ============================================== */
+
+/* ── コントロール（年・月セレクト）── */
+.cal-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.cal-select {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  padding: 0.35em 0.9em;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background-color: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  outline: none;
+}
+
+.cal-select:focus { border-color: var(--green); }
+
+.cal-status {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.cal-demo-badge {
+  font-size: 0.72rem;
+  color: var(--vermillion);
+  background: rgba(196,53,26,0.09);
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ── テーブル ── */
+.cal-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 320px;
+}
+
+.cal-table th {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(27,56,40,0.2);
+  text-align: center;
+  color: var(--green);
+}
+
+.cal-table th.sun { color: var(--vermillion); }
+.cal-table th.sat { color: var(--indigo); }
+
+.cal-table td {
+  padding: 8px 3px 6px;
+  border-bottom: 1px solid rgba(27,56,40,0.07);
+  text-align: center;
+  vertical-align: top;
+  min-height: 52px;
+  font-size: 0.83rem;
+  background: transparent;
+  transition: background 0.15s;
+}
+
+.cal-table td:hover    { background: rgba(27,56,40,0.03); }
+.cal-table td.col-sun  { background: rgba(196,53,26,0.03); }
+.cal-table td.col-sat  { background: rgba(28,45,90,0.03); }
+.cal-table td.other-month { opacity: 0.3; }
+
+/* ── 日付数字 ── */
+.cal-day-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 1;
+  margin-bottom: 3px;
+  font-size: 0.84rem;
+}
+
+.cal-day-num.today {
+  background-color: var(--green);
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.cal-day-num.sun { color: var(--vermillion); }
+.cal-day-num.sat { color: var(--indigo); }
+
+/* ── イベントラベル（ピル）── */
+.cal-pill {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 6px;
+  margin: 4px auto 0;
+  border-radius: 4px;
+  text-align: center;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.6;
+  cursor: default;
+}
+
+/* ▼▼▼ 予定の色設定 ▼▼▼ */
+
+/* 稽古・行事・審査・大会など → 赤 */
+.cal-pill.type-event,
+.cal-pill.type-training {
+  background-color: #b32424 !important;
+  color: #ffffff !important;
+}
+
+/* 稽古休み・中止など → 薄いピンク */
+.cal-pill.type-closed {
+  background-color: #f7d6d6 !important;
+  color: #d32f2f !important;
+}
+
+/* その他の予定（Google Calendar 連携）→ 紺 */
+.cal-pill.type-gcal {
+  background-color: #06396c !important;
+  color: #f7f5fc !important;
+}
+
+/* ▲▲▲ ここまで ▲▲▲ */
+
+/* ── 凡例 ── */
+.cal-legend {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.cal-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cal-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Google Calendar 設定ガイド ── */
+.setup-guide {
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(28,45,90,0.2);
+  border-left: 3px solid var(--indigo);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.setup-guide-toggle {
+  width: 100%;
+  text-align: left;
+  background: rgba(28,45,90,0.04);
+  border: none;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--indigo);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.setup-guide-toggle .arrow {
+  font-size: 0.72rem;
+  transition: transform 0.2s;
+}
+
+.setup-guide-toggle[aria-expanded="true"] .arrow {
+  transform: rotate(180deg);
+}
+
+.setup-guide-body {
+  display: none;
+  padding: 1.2rem 1.4rem;
+  font-size: 0.83rem;
+  line-height: 1.9;
+  color: #4A4035;
+}
+
+.setup-guide-body.open { display: block; }
+
+.setup-guide-body ol {
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setup-guide-body code {
+  background: rgba(0,0,0,0.06);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 0.82rem;
+}
+
+.setup-guide-body pre {
+  background: var(--green);
+  color: var(--cream);
+  padding: 0.8rem 1rem;
+  border-radius: 3px;
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+/* ── エラー表示 ── */
+.cal-error {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  background: rgba(196,53,26,0.07);
+  border-left: 3px solid var(--vermillion);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  color: var(--vermillion);
+}
+
+.cal-retry-btn {
+  font-size: 0.78rem;
+  color: var(--indigo);
+  border: 1px solid var(--indigo);
+  background: none;
+  padding: 3px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cal-retry-btn:hover { background: rgba(28,45,90,0.08); }
+
+/* ── 列幅カスタマイズ（水・土・日を広く）── */
+.cal-table th:nth-child(2), .cal-table td:nth-child(2), /* 月 */
+.cal-table th:nth-child(3), .cal-table td:nth-child(3), /* 火 */
+.cal-table th:nth-child(5), .cal-table td:nth-child(5), /* 木 */
+.cal-table th:nth-child(6), .cal-table td:nth-child(6)  /* 金 */ {
+  width: 9%;
+}
+
+.cal-table th:nth-child(1), .cal-table td:nth-child(1), /* 日 */
+.cal-table th:nth-child(4), .cal-table td:nth-child(4), /* 水 */
+.cal-table th:nth-child(7), .cal-table td:nth-child(7)  /* 土 */ {
+  width: 21%;
+}

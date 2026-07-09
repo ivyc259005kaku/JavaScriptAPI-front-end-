@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+  ダウンロード後、このファイルを「faq.html」にリネームしてください
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>よくある質問 | 宇佐合気道会</title>
+  <link rel="stylesheet" href="css-base.css" />
+  <link rel="stylesheet" href="css-header.css" />
+  <link rel="stylesheet" href="css-hero.css" />
+  <link rel="stylesheet" href="css-cards.css" />
+  <link rel="stylesheet" href="css-calendar.css" />
+  <link rel="stylesheet" href="css-pages.css" />
+  <link rel="stylesheet" href="css-responsive.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">宇佐合気道会</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">ホーム</a>
+        <a href="past.html"  class="nav-link">過去の活動</a>
+        <a href="faq.html"   class="nav-link active">よくある質問</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-page-label fade-in">宇佐合気道会</p>
+      <h1 class="hero-page-title fade-in fade-in-d1">よくある質問</h1>
+      <div class="hero-line fade-in fade-in-d2"></div>
+    </div>
+  </div>
+
+  <main class="container main-content">
+
+    <section class="card reveal">
+      <h2 class="section-title">よくある質問</h2>
+      <p class="faq-lead">Frequently Asked Questions</p>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.01</span>
+            <span class="faq-q-text">合気道初心者ですが、始めても大丈夫ですか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">初心者の方も大歓迎です。丁寧に基本から指導しますので、安心してご参加いただけます。体力に自信のない方でも、ご自身のペースで稽古を進めていただけます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.02</span>
+            <span class="faq-q-text">見学や体験はできますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">見学・体験は無料で随時受け付けております。稽古時間中に直接道場へお越しいただいてもかまいませんが、稽古が休みになることがありますのでご了承ください。動きやすい服装でお越しください。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.03</span>
+            <span class="faq-q-text">年齢制限はありますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">年齢制限はありません。男女問わず、お子様からご年配の方まで幅広い年齢層の方が参加されています。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.04</span>
+            <span class="faq-q-text">稽古に必要なものはありますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">動きやすい服装があればすぐに体験できます。正式入会後は道着（柔道着・空手道着でも可）が必要ですが、最初は綿素材の長袖・長ズボンで大丈夫です。水分補給のための飲み物もお忘れなく。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.05</span>
+            <span class="faq-q-text">体力に自信がありませんが、合気道はできますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">できます。合気道は力に頼らず相手の力を利用する武道ですので、性別や体格に関わらず誰でも学ぶことができます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.06</span>
+            <span class="faq-q-text">費用はどのくらいかかりますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">月会費（社会人 2,000円・学生 1,000円）のほか、昇級昇段審査の際に別途費用がかかります。詳細はお問い合わせください。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.07</span>
+            <span class="faq-q-text">痛いですか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">痛いときもあります。痛いときはお知らせください。手加減はできます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.08</span>
+            <span class="faq-q-text">親の動員はありますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">合気道は試合がありません。日々の送迎や審査の際の付き添い程度になるかと思います。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-num">Q.09</span>
+            <span class="faq-q-text">袴はいつから着用できますか？</span>
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <span class="faq-a-label">A.</span>
+              <p class="faq-a-text">祥平塾傘下の当会では、初段合格後から着用できます。</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.faq-list -->
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-title">宇佐合気道会</p>
+    <p class="footer-address">〒879-0452 大分県宇佐市川部1591　宇佐市総合運動公園内 武道場</p>
+    <p class="footer-copy">© 非公式 2025 宇佐合気道会</p>
+  </footer>
+
+  <script>
+    /* FAQ アコーディオン */
+    function toggleFaq(btn) {
+      var item   = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
+      /* すべて閉じる */
+      document.querySelectorAll('.faq-item.open').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+      /* クリックしたものだけ開く */
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    /* スクロールアニメーション */
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+  </script>
+</body>
+</html>

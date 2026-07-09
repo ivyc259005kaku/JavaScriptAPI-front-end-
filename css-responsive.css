@@ -1,0 +1,50 @@
+/* ==============================================
+   css-responsive.css
+   レスポンシブ対応（タブレット・スマホ）
+   ★ 画面幅ごとのレイアウト調整はここを編集
+   ============================================== */
+
+/* ── タブレット以下（640px 以下）── */
+@media (max-width: 640px) {
+  /* ナビ */
+  .nav-inner {
+    height: auto;
+    padding: 0.7rem clamp(1rem,4vw,2.5rem);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    width: 100%;
+    padding-bottom: 0.4rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ヒーロー */
+  .hero-title { letter-spacing: 0.14em; }
+
+  /* 時間・場所 */
+  .info-grid { grid-template-columns: 1fr; }
+
+  /* カレンダー */
+  .cal-day-num          { width: 22px; height: 22px; font-size: 0.72rem; }
+  .cal-pill             { font-size: 0.54rem; }
+  .cal-table th,
+  .cal-table td         { padding: 5px 2px; font-size: 0.72rem; }
+
+  /* FAQ */
+  .faq-answer-inner     { padding-left: 1rem; }
+}
+
+/* ── スマホ（タブレット対応）── */
+@media (max-width: 1024px) {
+  /* background-attachment:fixed はタブレット・スマホで
+     表示がずれるため scroll に切り替え */
+  .hero {
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
