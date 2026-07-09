@@ -94,6 +94,7 @@
       </div>
     </section>
 
+    <!--
     <section class="card reveal">
       <h2 class="section-title">稽古日程</h2>
 
@@ -145,6 +146,9 @@
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:rgba(196,53,26,0.2);"></span>稽古休み</div>
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:#1B3828;border-radius:50%;"></span>今日</div>
       </div>
+    </section>-->
+    <section class="card reveal">
+      <div id="app"></div>
     </section>
 
   </main>
@@ -155,7 +159,9 @@
     <p class="footer-copy">© 非公式 2025 宇佐合気道会</p>
   </footer>
 
+  <!--
   <script src="calendar.js"></script>
+  -->
   <script>
     const obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
@@ -164,5 +170,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
   </script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
