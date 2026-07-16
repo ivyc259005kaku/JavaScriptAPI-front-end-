@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-  ダウンロード後、このファイルを「index.html」にリネームしてください
-  style.css と calendar.js を同じフォルダに置いてください
--->
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
@@ -94,42 +90,17 @@
       </div>
     </section>
 
-    <!--
     <section class="card reveal">
       <h2 class="section-title">稽古日程</h2>
-
-      <div id="setup-guide" class="setup-guide" style="display:none;">
-        <button class="setup-guide-toggle" aria-expanded="false" onclick="toggleGuide(this)">
-          <span>⚙ Google Calendar API の設定方法</span>
-          <span class="arrow">▼</span>
-        </button>
-        <div class="setup-guide-body" id="guide-body">
-          <ol>
-            <li><strong>Google Cloud Console</strong> でプロジェクトを作成し、<strong>Google Calendar API</strong> を有効化する。</li>
-            <li>「認証情報」→「APIキーを作成」でキーを発行する。</li>
-            <li>Google カレンダーを <strong>一般公開</strong> に設定し、<strong>カレンダーID</strong> をコピーする。</li>
-            <li><code>calendar.js</code> の先頭にある <code>CALENDAR_CONFIG</code> を書き換える：
-              <pre>const CALENDAR_CONFIG = {
-  apiKey:     'あなたのAPIキー',
-  calendarId: 'カレンダーID',
-};</pre>
-            </li>
-          </ol>
-        </div>
-      </div>
-
       <div class="cal-controls">
         <select id="cal-year"  class="cal-select"></select>
         <select id="cal-month" class="cal-select"></select>
         <span id="cal-status" class="cal-status"></span>
-        <span id="cal-demo-badge" class="cal-demo-badge" style="display:none;">デモ表示</span>
       </div>
-
       <div id="cal-error" class="cal-error" style="display:none;">
         <span id="cal-error-msg"></span>
         <button class="cal-retry-btn" onclick="retryCalendar()">再試行</button>
       </div>
-
       <div class="cal-table-wrap">
         <table class="cal-table">
           <thead>
@@ -140,15 +111,11 @@
           <tbody id="cal-body"></tbody>
         </table>
       </div>
-
       <div class="cal-legend">
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:rgba(28,45,90,0.2);"></span>稽古・行事</div>
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:rgba(196,53,26,0.2);"></span>稽古休み</div>
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:#1B3828;border-radius:50%;"></span>今日</div>
       </div>
-    </section>-->
-    <section class="card reveal">
-      <div id="app"></div>
     </section>
 
   </main>
@@ -159,9 +126,7 @@
     <p class="footer-copy">© 非公式 2025 宇佐合気道会</p>
   </footer>
 
-  <!--
   <script src="calendar.js"></script>
-  -->
   <script>
     const obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
@@ -170,6 +135,5 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
   </script>
-  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
