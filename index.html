@@ -90,31 +90,58 @@
       </div>
     </section>
 
-    <section class="card reveal">
+    <section class="card reveal" id="cal-app">
       <h2 class="section-title">稽古日程</h2>
       <div class="cal-controls">
-        <select id="cal-year"  class="cal-select"></select>
-        <select id="cal-month" class="cal-select"></select>
-        <span id="cal-status" class="cal-status"></span>
+        <select v-model.number="currentYear" @change="renderCalendar" class="cal-select">
+          <option v-for="y in years" :key="y" :value="y">{{ y }}年</option>
+        </select>
+        <select v-model.number="currentMonth" @change="renderCalendar" class="cal-select">
+          <option v-for="(m, i) in monthNames" :key="i" :value="i">{{ m }}</option>
+        </select>
+        <span class="cal-status">{{ statusMsg }}</span>
       </div>
-      <div id="cal-error" class="cal-error" style="display:none;">
-        <span id="cal-error-msg"></span>
-        <button class="cal-retry-btn" onclick="retryCalendar()">再試行</button>
+      <div v-if="errorMsg" class="cal-error">
+        <span>{{ errorMsg }}</span>
+        <button class="cal-retry-btn" @click="renderCalendar">再試行</button>
       </div>
       <div class="cal-table-wrap">
         <table class="cal-table">
           <thead>
             <tr>
-              <th class="sun">日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th class="sat">土</th>
+              <th v-for="(w, i) in weekNames" :key="i" :class="i===0?'sun':i===6?'sat':''">{{ w }}</th>
             </tr>
           </thead>
-          <tbody id="cal-body"></tbody>
+          <tbody>
+            <tr v-for="(row, ri) in calendarRows" :key="ri">
+              <td v-for="(cell, ci) in row" :key="ci"
+                  :class="[colClass(cell.dow), cell.empty ? 'other-month' : '']">
+                <template v-if="!cell.empty">
+                  <span class="cal-day-num" :class="cell.isToday ? 'today' : dowClass(cell.dow)">{{ cell.day }}</span>
+                  <span v-for="(ev, ei) in cell.events" :key="ei"
+                        class="cal-pill" :class="pillClass(ev.summary || '')"
+                        @click="openEvent(ev)">{{ ev.summary }}</span>
+                </template>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="cal-legend">
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:rgba(28,45,90,0.2);"></span>稽古・行事</div>
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:rgba(196,53,26,0.2);"></span>稽古休み</div>
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:#1B3828;border-radius:50%;"></span>今日</div>
+      </div>
+
+      <!-- 予定クリック時のポップアップ -->
+      <div v-if="selectedEvent" class="cal-modal-overlay" @click.self="closeEvent">
+        <div class="cal-modal">
+          <button class="cal-modal-close" @click="closeEvent" aria-label="閉じる">×</button>
+          <h3 class="cal-modal-title">{{ selectedEvent.summary }}</h3>
+          <p class="cal-modal-date">{{ formatEventDate(selectedEvent) }}</p>
+          <p v-if="selectedEvent.location" class="cal-modal-row">📍 {{ selectedEvent.location }}</p>
+          <p v-if="selectedEvent.description" class="cal-modal-desc">{{ selectedEvent.description }}</p>
+        </div>
       </div>
     </section>
 
@@ -126,7 +153,8 @@
     <p class="footer-copy">© 非公式 2025 宇佐合気道会</p>
   </footer>
 
-  <script src="calendar.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="calendar-vue.js"></script>
   <script>
     const obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
