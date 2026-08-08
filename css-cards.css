@@ -22,9 +22,9 @@
 }
 
 .card--alt {
-  background-color: var(--cream);
+  background-color: #b6d6c9;
   box-shadow: none;
-  border: 1px solid var(--border);
+  border: 5px solid var(--green);
 }
 
 .card--notice {
@@ -44,6 +44,18 @@
   margin-bottom: 1.4rem;
 }
 
+.card--alt .section-title {
+  color: var(--vermillion);
+  background-color: #FFFFFF;
+  color: var(--green);
+  padding: 0.4em 1em;
+  border-radius: 3px;
+}
+
+.card--alt .section-title::before {
+  background-color:var(--vermillion);
+}
+
 .section-title::before {
   content: '';
   display: inline-block;
@@ -58,8 +70,9 @@
 .card p {
   font-size: 0.95rem;
   line-height: 1.95;
-  color: #3A3228;
+  color: #090500;
   margin-bottom: 0.8rem;
+  font-weight: 500;
 }
 
 .card p:last-child { margin-bottom: 0; }
@@ -78,11 +91,12 @@
 /* ── ラベル ── */
 .label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-size: 1rem;
+  color: #392101;
   letter-spacing: 0.12em;
   display: block;
   margin-bottom: 0.25rem;
+  font-weight: 500;
 }
 
 /* ── お知らせ ── */
@@ -118,7 +132,7 @@
 
 .fee-amount {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--green);
 }
@@ -166,14 +180,25 @@
 /* ── お問い合わせ ── */
 .contact-block {
   margin-top: 1.4rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--border);
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color:#FFFFFF;
 }
+
+/*.contact-block .label {
+  display: inline-block;
+  background-color: var(--green);
+  color: #FFFFFF;
+  padding: 0.3em 0.9em;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}*/
 
 .contact-tel {
   font-family: var(--font-serif);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--green);
   letter-spacing: 0.08em;
   margin-top: 0.3rem;
@@ -182,6 +207,6 @@
 .contact-tel small {
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  color: var(--muted);
-  font-weight: 400;
+  color: #080807;
+  font-weight: 600;
 }

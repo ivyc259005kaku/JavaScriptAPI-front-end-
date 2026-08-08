@@ -106,26 +106,28 @@
         <button class="cal-retry-btn" @click="renderCalendar">再試行</button>
       </div>
       <div class="cal-table-wrap">
-        <table class="cal-table">
-          <thead>
-            <tr>
-              <th v-for="(w, i) in weekNames" :key="i" :class="i===0?'sun':i===6?'sat':''">{{ w }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(row, ri) in calendarRows" :key="ri">
-              <td v-for="(cell, ci) in row" :key="ci"
-                  :class="[colClass(cell.dow), cell.empty ? 'other-month' : '']">
-                <template v-if="!cell.empty">
-                  <span class="cal-day-num" :class="cell.isToday ? 'today' : dowClass(cell.dow)">{{ cell.day }}</span>
-                  <span v-for="(ev, ei) in cell.events" :key="ei"
-                        class="cal-pill" :class="pillClass(ev.summary || '')"
-                        @click="openEvent(ev)">{{ ev.summary }}</span>
-                </template>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Transition name="cal-fade" mode="out-in">
+          <table class="cal-table" :key="currentYear + '-' + currentMonth">
+            <thead>
+              <tr>
+                <th v-for="(w, i) in weekNames" :key="i" :class="i===0?'sun':i===6?'sat':''">{{ w }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(row, ri) in calendarRows" :key="ri">
+                <td v-for="(cell, ci) in row" :key="ci"
+                    :class="[colClass(cell.dow), cell.empty ? 'other-month' : '']">
+                  <template v-if="!cell.empty">
+                    <span class="cal-day-num" :class="cell.isToday ? 'today' : dowClass(cell.dow)">{{ cell.day }}</span>
+                    <span v-for="(ev, ei) in cell.events" :key="ei"
+                          class="cal-pill" :class="pillClass(ev.summary || '')"
+                          @click="openEvent(ev)">{{ ev.summary }}</span>
+                  </template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Transition>
       </div>
       <div class="cal-legend">
         <div class="cal-legend-item"><span class="cal-legend-dot" style="background:rgba(28,45,90,0.2);"></span>稽古・行事</div>
