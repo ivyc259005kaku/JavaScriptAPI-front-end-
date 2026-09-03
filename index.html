@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css-hero.css" />
   <link rel="stylesheet" href="css-cards.css" />
   <link rel="stylesheet" href="css-calendar.css" />
+  <link rel="stylesheet" href="css-weather.css" />
   <link rel="stylesheet" href="css-pages.css" />
   <link rel="stylesheet" href="css-responsive.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,7 +37,7 @@
     </div>
   </div>
 
-  <main class="container main-content">
+  <main class="container main-content" id="cal-app">
 
     <section class="card reveal">
       <h2 class="section-title">ごあいさつ</h2>
@@ -89,8 +90,8 @@
         <p>熱中症対策のため、稽古の際は飲み物をお持ちください。</p>
       </div>
     </section>
-
-    <section class="card reveal" id="cal-app">
+ <!-- 稽古日程のAPI -->
+    <section class="card reveal">
       <h2 class="section-title">稽古日程</h2>
       <div class="cal-controls">
         <select v-model.number="currentYear" @change="renderCalendar" class="cal-select">
@@ -147,6 +148,27 @@
       </div>
     </section>
 
+    <!-- 天気セクション -->
+<section class="card reveal" id="weather-app">
+  <h2 class="section-title">宇佐市の天気</h2>
+  <div v-if="weather">
+    <div class="weather-today">
+      <span class="weather-icon">{{ weatherIcon(weather.code) }}</span>
+      <span class="weather-temp">{{ weather.temp }}℃</span>
+      <span class="weather-label">{{ weatherLabel(weather.code) }}　宇佐市</span>
+    </div>
+    <div class="weather-daily">
+      <div v-for="d in weather.daily" :key="d.date" class="weather-day">
+        <span class="weather-day-date">{{ formatDate(d.date) }}</span>
+        <span class="weather-day-icon">{{ weatherIcon(d.code) }}</span>
+        <span class="weather-day-temp">{{ d.max }}° / {{ d.min }}°</span>
+        <span class="weather-day-rain">☂ {{ d.rain }}%</span>
+      </div>
+    </div>
+  </div>
+  <p v-else-if="weatherError" style="color:var(--vermillion)">{{ weatherError }}</p>
+  <p v-else class="cal-status">読み込み中…</p>
+</section>
   </main>
 
   <footer class="site-footer">
