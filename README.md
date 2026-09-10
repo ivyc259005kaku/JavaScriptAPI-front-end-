@@ -27,3 +27,6 @@ npm run dev
 
 ## 画面表示
 ブラウザで'http://localhost:5173'を開く。
+
+## アクセス用QRコード
+![QRコード](qr-code.png)
